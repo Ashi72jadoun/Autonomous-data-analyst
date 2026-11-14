@@ -1,0 +1,11 @@
+python-dotenv
+pandas
+sqlalchemy
+mysql-connector-python
+groq
+matplotlib
+streamlit
+streamlit-mic-recorder
+langgraph
+langchain-core
+openpyxl

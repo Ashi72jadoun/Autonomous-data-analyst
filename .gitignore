@@ -1,0 +1,17 @@
+# Virtual Environment & Python Cache
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Variables & Secrets
+.env
+.streamlit/secrets.toml
+
+# Temporary Runtime Assets
+latest_chart.png
+
+# OS & IDE Files
+.vscode/
+.DS_Store
+Thumbs.db
