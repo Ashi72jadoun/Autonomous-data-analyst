@@ -1,104 +1,165 @@
-<div align="center">
+# ✨ AURA BI — Ask. Analyze. Act.
 
-# ✨ AURA BI
-### Autonomous Business Intelligence & Self-Healing SQL Agent
+<p align="center">
+  <strong>Your autonomous, voice-enabled data analyst.</strong><br>
+  Ask in plain English—or use the microphone—to turn live data into SQL results, visualizations, and executive-ready insights.
+</p>
 
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![LangGraph](https://img.shields.io/badge/LangGraph-Agentic_Workflow-FF4B4B?style=for-the-badge)](https://langchain-ai.github.io/langgraph/)
-[![Groq](https://img.shields.io/badge/Groq-Fast_Inference-F55036?style=for-the-badge)](https://groq.com)
-[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Neumorphic_UI-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+<p align="center">
+  <img src="assets/screenshots/01-aura-command-center.png"
+       alt="AURA BI home screen with quick prompts and voice or text input"
+       width="100%" />
+</p>
 
-</div>
-
----
-
-## 🎯 Overview
-
-**Aura BI** is an autonomous, full-stack Business Intelligence agent that transforms natural language and voice queries into validated SQL, live database analytics, automated visualizations, and executive summaries. Built on a stateful **LangGraph** architecture, it automatically detects and self-corrects SQL execution errors without human intervention.
+<p align="center">
+  <sub><strong>01 · The AURA Command Center</strong> — Start with a quick prompt, type a question, or ask it by voice.</sub>
+</p>
 
 ---
 
-## 📸 Dashboard UI Showcase
+## 🎬 AURA in Action
 
-### ☀️ Light Mode — Executive Insights & Multi-Format Export
-<img src="assets/Light_dashboard.png" alt="Aura BI Light Mode Dashboard" width="100%" />
+### ☀️ The Brightside Dashboard — Results, charts, and exports
 
-### 🌙 Dark Mode — Neumorphic Interface & Auto-Charting
-<img src="assets/Dark_dashboard.png" alt="Aura BI Dark Mode Dashboard" width="100%" />
+<p align="center">
+  <img src="assets/screenshots/02-brightside-dashboard.png"
+       alt="AURA BI light dashboard showing query results, a chart, and export options"
+       width="100%" />
+</p>
 
-### 🛠️ Engineered Architecture & Custom Footer
-<img src="assets/engineered%20By%20AJ.png" alt="Engineered by AJ" width="100%" />
+### 💡 Insight to Action — An executive-ready business brief
+
+<p align="center">
+  <img src="assets/screenshots/03-executive-insights.png"
+       alt="AURA BI executive insights with a direct answer, key takeaway, and business implication"
+       width="100%" />
+</p>
+
+### 🌗 Day & Night — Your workspace, your way
+
+<p align="center">
+  <img src="assets/screenshots/04-day-night-toggle.png"
+       alt="AURA BI light-mode and dark-mode theme toggles"
+       width="420" />
+</p>
 
 ---
 
-## 🏗️ Autonomous Agent Architecture
+## 🎯 What AURA BI Does
+
+AURA BI is a full-stack business intelligence agent that converts **text or voice questions** into validated SQL, live MySQL analytics, visualizations, and business-focused summaries. Its LangGraph workflow can detect SQL execution errors and attempt to repair the query automatically.
+
+| Capability | How it works |
+|---|---|
+| 🎙️ **Voice and text input** | A unified chat-style input supports typed questions and microphone input using `streamlit-mic-recorder` and speech-to-text, with clear controls. |
+| ⚡ **Quick-start prompts** | Clickable example questions help you explore the data right away. |
+| 🔎 **Live schema extraction** | Reads MySQL metadata to ground SQL generation in the available tables and columns. |
+| 🧠 **Natural-language-to-SQL** | Uses an LLM workflow to translate business questions into SQL. |
+| 🛡️ **Read-only SQL guardrail** | Pre-execution checks restrict queries to `SELECT` and `WITH` CTE patterns and block write or destructive statements. |
+| 🔁 **Self-healing SQL loop** | A stateful LangGraph workflow captures MySQL errors and can retry SQL correction up to **3 times**. |
+| 📊 **Automatic visualizations** | Evaluates the returned DataFrame and generates Matplotlib charts, with hover-to-download support. |
+| 💼 **Executive business insights** | Summarizes results as a direct answer, key takeaway, and business implication. |
+| 📤 **PDF, Excel, and CSV exports** | Export results in PDF, `.xlsx`, or CSV format; Streamlit session state helps keep results available across UI reruns. |
+| 🌗 **Light and dark modes** | Switch between the two dashboard themes. |
+
+## 🧠 Agent Workflow
 
 ```mermaid
 flowchart TD
-    A[🎙️ User Query: Voice or Text] --> B[🔍 Schema Extractor Node]
-    B -->|Live MySQL Metadata| C[🧠 Text-to-SQL LLM Node]
-    C --> D{🛡️ SQL Safety Guardrail}
-    D -->|Unsafe: DROP / DELETE / UPDATE| E[❌ Block & Security Alert]
-    D -->|Safe: SELECT / WITH only| F[⚡ MySQL Execution Engine]
-    F -->|Syntax / Schema Error & Retries < 3| C
-    F -->|Query Succeeded| G[📊 Auto-Visualizer Node]
-    F -->|Query Succeeded| H[💡 Executive Insight Generator]
-    G --> I[🖥️ Streamlit Interactive Dashboard]
-    H --> I
-    I --> J[📄 Export: PDF / Excel / CSV / PNG]
+    A["Business question: text or microphone"] --> B["Extract live MySQL schema"]
+    B --> C["Generate SQL with Groq"]
+    C --> D{"Read-only SQL validation"}
+    D -->|Rejected| E["Block unsafe query"]
+    D -->|Approved| F["Execute against MySQL"]
+    F -->|SQL error| G["LangGraph repair loop: up to 3 retries"]
+    G --> C
+    F --> H["Results DataFrame"]
+    H --> I["Automatic Matplotlib visualization"]
+    H --> J["Executive insight: answer, takeaway, implication"]
+    H --> K["PDF, Excel, or CSV export"]
 ```
 
+## 💬 Try These Questions
+
+- “Show total quantity ordered for each product category.”
+- “Which region generated the highest number of orders?”
+- “What is the total revenue generated by each product category?”
+
+## 🧰 Tech Stack
+
+**Python · Streamlit · LangGraph · Groq · MySQL · Matplotlib**
+
+## 🚀 Run Locally
+
+### 1. Clone the repository
+
+Replace `YOUR-USERNAME` with your GitHub username. If you already have the repository cloned, use your existing project folder.
+
+```bash
+git clone https://github.com/Ashi72jadoun/autonomous-data-analyst.git
+cd autonomous-data-analyst
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+**Windows PowerShell**
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux**
+```bash
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Create a `.env` file in the project root:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+DB_HOST=localhost
+DB_USER=your_read_only_mysql_user
+DB_PASSWORD=your_mysql_password
+DB_NAME=your_database_name
+```
+
+Keep `.env` out of Git and never publish real API keys or database credentials. For stronger protection, connect using a MySQL account with read-only permissions; an application-level guardrail should not replace database permissions.
+
+### 5. Launch AURA BI
+
+```bash
+streamlit run app.py
+```
+
+## 🗂️ Key Project Files
+
+| File | Purpose |
+|---|---|
+| `app.py` | Streamlit interface and dashboard |
+| `agent_runner.py`, `graph_agent.py` | Agent execution and LangGraph workflow |
+| `schema_extractor.py` | MySQL schema and metadata extraction |
+| `text_to_sql.py` | Natural-language-to-SQL generation |
+| `sql_validator.py` | SQL safety validation |
+| `db_connect.py` | MySQL connection |
+| `data_visualizer.py` | Automatic chart generation |
+| `insight_generator.py` | Executive summaries and business insights |
+| `requirements.txt` | Python dependencies |
+| `assets/screenshots/` | README product-tour images |
+
 ---
 
-## 🚀 Core Engineering Features
-
-| Module | Technical Implementation |
-| :--- | :--- |
-| **Self-Healing SQL Loop** | Stateful `StateGraph` captures MySQL tracebacks and iterates up to 3 times to auto-correct column names, joins, or syntax errors. |
-| **Read-Only Guardrail** | Pre-execution regex and keyword validation restricts queries strictly to `SELECT` and `WITH` CTE statements. |
-| **Dynamic Visualization** | Evaluates returned DataFrame dimensionality and renders Matplotlib charts automatically with hover-to-download support. |
-| **Voice & Text Input** | Unified Gemini-style search bar with embedded `streamlit-mic-recorder` speech-to-text and conditional clear controls. |
-| **State-Persistent Exports** | Uses `st.session_state` caching to export query results to **PDF**, **Excel (`.xlsx`)**, and **CSV** without UI resets. |
-
----
-
-## ⚙️ Local Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/Ashi72jadoun/autonomous-data-analyst.git](https://github.com/Ashi72jadoun/autonomous-data-analyst.git)
-   cd autonomous-data-analyst
-   ```
-
-2. **Create and activate the virtual environment**
-   ```powershell
-   python -m venv venv
-   .\venv\Scripts\Activate.ps1
-   ```
-
-3. **Install required packages**
-   ```powershell
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment variables**
-   Create a `.env` file in the root directory:
-   ```env
-   GROQ_API_KEY=your_groq_api_key
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=your_mysql_password
-   DB_NAME=your_database_name
-   ```
-
-5. **Launch Aura BI**
-   ```powershell
-   streamlit run app.py
-   ```
-
----
-
-<div align="center">
-  <b>Aura BI | Engineered with Python, LangGraph, MySQL & Groq by AJ :)</b>
-</div>
+<p align="center">
+  <strong>✨ AURA BI — From questions to decisions.</strong><br>
+  Built with Python, LangGraph, MySQL, and Groq · by AJ
+</p>
