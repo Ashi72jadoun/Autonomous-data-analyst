@@ -96,7 +96,7 @@ flowchart TD
 Replace `YOUR-USERNAME` with your GitHub username. If you already have the repository cloned, use your existing project folder.
 
 ```bash
-git clone https://github.com/Ashi72jadoun/autonomous-data-analyst.git
+git clone https://github.com/YOUR-USERNAME/autonomous-data-analyst.git
 cd autonomous-data-analyst
 ```
 
